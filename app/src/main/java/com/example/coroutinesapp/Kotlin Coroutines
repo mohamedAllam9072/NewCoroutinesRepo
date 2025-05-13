@@ -1,0 +1,97 @@
+Kotlin Coroutines
+# Study for medium article in next link:
+https://medium.com/hprog99/mastering-kotlin-coroutines-with-practical-examples-1544e0bdbd64
+
+# kotlin coroutine is a way to write asynchronous code in a sequential manner.
+
+  question 1 : what is the difference between async and sync code ?
+  question 2 : what is the difference between sequential and not sequential manner ?
+
+  answer link: https://chat.deepseek.com/a/chat/s/6fb84bf1-5af3-4051-81c7-edc901214309
+
+  sync/async : sync is runs code line by line each task completing before the next starts.
+             : async is tasks run in parallel , tasks start and let other code run while waiting
+              for the result.
+             : the main point is sync block the thread while async doesn't.
+
+  sequential/non-sequential:
+  sequential is runs code line by line each task completing before the next starts.
+  non-sequential is might involves callbacks and event driven where jumps around the code.
+
+  * but coroutines even though they are async they can be written in a sequential manner and
+    avoiding callbacks hell,the difference is how the code is written and structured.
+
+  * coroutines bridge the gap between async efficiency (non-blocking ,without callbacks)
+    and  sync like readability (sequential structured code writing).
+  * coroutines avoid callbacks hell.
+  * coroutines get the good of both sync and async.
+  ------------------------------------------------------------------------------------------
+
+ # It’s a lightweight thread that doesn’t require the overhead of context switching.
+
+  Q1 : whats the difference between lightweight and heavy weight threads?
+  answer link : https://chat.deepseek.com/a/chat/s/6fb84bf1-5af3-4051-81c7-edc901214309
+
+  **Answer: Lightweight vs. Heavyweight Threads**
+  The statement refers to Kotlin coroutines as "lightweight threads" because they avoid
+  the overhead of traditional threads. Here's the breakdown:
+
+  ### **1. Heavyweight (OS) Threads**
+  - **Managed by the OS**: Created and scheduled by the operating system (e.g., Java `Thread`).
+  - **High Overhead**:
+    - **Memory**: Each thread reserves a large stack (e.g., 1MB default in Java).
+    - **Context Switching**: Switching between threads involves saving/restoring CPU state,
+      registers, and memory mappings (costly due to OS kernel involvement).
+    - **Scalability Limits**: Creating thousands of OS threads can exhaust system resources.
+  - **Preemptive Scheduling**: The OS forcibly pauses/resumes threads, adding overhead.
+
+  ### **2. Lightweight Threads (Coroutines)**
+  - **Managed by the Runtime**: Kotlin coroutines are scheduled by the Kotlin runtime, not the OS.
+  - **Minimal Overhead**:
+    - **Memory**: Tiny stack size (a few KB), enabling millions of coroutines to run concurrently.
+    - **No OS Context Switching**: Coroutines suspend/resume in user space (no kernel involvement).
+    - **Cooperative Scheduling**: Coroutines yield control voluntarily (e.g., at `suspend` points),
+      avoiding forced interruptions.
+  - **Concurrency Model**: Thousands of coroutines can run on a small pool of OS threads
+       (e.g., using `Dispatchers.IO`).
+
+  ---
+
+  ### **Key Differences**
+  | Feature                | Heavyweight Threads (OS)    | Lightweight Threads (Coroutines) |
+  |------------------------|-----------------------------|----------------------------------|
+  | **Management**         | OS-controlled               | Runtime-controlled (user-space)  |
+  | **Memory per Instance**| ~1MB (default)              | ~KB or less                      |
+  | **Context Switching**  | Expensive (OS kernel)       | Cheap (user-space)               |
+  | **Scalability**        | Limited (hundreds)          | Massive (millions)               |
+  | **Scheduling**         | Preemptive (OS decides)     | Cooperative (developer controls) |
+
+  ---
+
+  ### **Example**
+  - **Heavyweight**: Spawning 10,000 OS threads for HTTP requests would crash most apps.
+  - **Lightweight**: 10,000 coroutines (e.g., using `launch` or `async`) handle the same
+                     requests efficiently on a few OS threads.
+
+  ---
+
+  **Why It Matters**:
+  Kotlin coroutines enable massively concurrent code (like async tasks) without
+  the resource costs of OS threads, making them ideal
+  for I/O-bound or high-concurrency apps (e.g., servers, Android).
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
