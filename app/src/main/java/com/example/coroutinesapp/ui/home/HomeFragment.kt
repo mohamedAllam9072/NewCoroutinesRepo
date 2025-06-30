@@ -10,6 +10,7 @@ import com.example.coroutinesapp.databinding.FragmentHomeBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -27,10 +28,94 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        testRunBlockingCoroutine()
+       // structuredConcurrency()
+        jobHierarchy()
         return root
     }
 
+    private fun jobHierarchy() {
+        runBlocking {
+            val parentJob = launch {
+                val childJob = launch {
+                    while (true) {
+                        Log.d("TAG1", "Child is running")
+                        delay(500L)
+                    }
+                }
+                delay(2000L)
+                Log.d("TAG1", "Cancelling child job")
+                childJob.cancel()
+            }
+            parentJob.join()
+        }
+    }
+
+    private fun structuredConcurrency() {
+        runBlocking {
+            Log.d("TAG1_1", "Start of runBlocking")
+            launch {
+                delay(1000L)
+                Log.d("TAG1_2", "Task from runBlocking")
+            }
+            coroutineScope {
+                launch {
+                    delay(2000L)
+                    Log.d("TAG1_3", "Task from nested launch")
+                }
+                delay(500L)
+                Log.d("TAG1_4", "Task from coroutine scope")
+            }
+            Log.d("TAG1_5", "Coroutine scope is over")
+        }
+
+
+        /**
+         * The output of the above code will be:
+         *
+         * 12:49:52.523 TAG1_1   Start of runBlocking
+         * 12:49:53.029 TAG1_4   Task from coroutine scope  , coroutine 2 after 500L
+         * 12:49:53.530 TAG1_2   Task from runBlocking      , coroutine 1 after 1000L
+         * 12:49:54.530 TAG1_3   Task from nested launch    , coroutine inside coroutine 2 after 2000L
+         * 12:49:54.531 TAG1_5   Coroutine scope is over
+         *
+         *
+         * from above output we get the following:
+         * in normal code the output will be:
+         * TAG1_1
+         * TAG1_2
+         * TAG1_3
+         * TAG1_4
+         * TAG1_5
+         *
+         * but in coroutines the output will be:
+         * TAG1_1
+         * TAG1_4
+         * TAG1_2
+         * TAG1_3
+         * TAG1_5
+         *
+         * In this code, runBlocking creates a new coroutine scope, and within that
+         * scope, we launch a new coroutine and create a new coroutineScope. The
+         * coroutineScope blocks the current coroutine until all of its child coroutines
+         * are completed. So, the message "Coroutine scope is over" is printed only
+         * after the nested launch completes its execution.
+         *
+         * --------------------
+         *
+         * runBlocking have 2 child coroutines
+         * if we remove the coroutineScope then the output will be:
+         * TAG1_1 -> TAG1_2 -> TAG1_5,
+         *
+         * if we add the coroutineScope then the output will be:
+         *
+         * TAG1_1 : start of coroutine
+         * TAG1_4 : from coroutineScope
+         * TAG1_2 : from Launch outSide coroutineScope
+         * TAG1_3 : from coroutineScope again
+         * TAG1_5 : after all child coroutines (coroutineScope(task1,task2) and launch) are completed
+         *
+         * */
+    }
 
     private fun testLaunchCoroutine() {
         /**
