@@ -12,8 +12,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.suspendCancellableCoroutine
 
 class HomeFragment : Fragment() {
 
@@ -29,10 +32,40 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
        // structuredConcurrency()
-        jobHierarchy()
+        //jobHierarchy()
+     //   testFlow()
         return root
     }
+//    suspend fun fetchUser(id: String): User = suspendCancellableCoroutine { continuation ->
+//     api.getUser(id, object : Callback<User> {
+//        override fun onResponse(call: Call<User>, response: Response<User>) {
+//            continuation.resume(response.body())
+//        }
+//
+//        override fun onFailure(call: Call<User>, t: Throwable) {
+//            continuation.resumeWithException(t)
+//        }
+//    })
+//    }
+    private fun testFlow() {
+        runBlocking {
+            launch {
+                for (k in 1..5) {
+                  Log.d("TAG1", "I'm not blocked $k")
+                    delay(1000L)
+                }
+            }
+            numbers().collect { value -> println(value) }
 
+        }
+    }
+    private fun numbers(): Flow<Int> = flow {
+        for (i in 1..5) {
+            delay(1000L)
+            emit(i)
+            Log.d("TAG1", "numbers emit $i")
+        }
+    }
     private fun jobHierarchy() {
         runBlocking {
             val parentJob = launch {
