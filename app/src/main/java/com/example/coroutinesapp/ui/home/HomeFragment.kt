@@ -1,7 +1,6 @@
 package com.example.coroutinesapp.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,15 +11,6 @@ import com.example.coroutinesapp.databinding.FragmentHomeBinding
 import com.example.coroutinesapp.examples.AsyncExamples
 import com.example.coroutinesapp.examples.Examples
 import com.example.coroutinesapp.examples.JobHandlingExamples
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class HomeFragment : Fragment() {
 
@@ -32,7 +22,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         binding.button1.setOnClickListener { Examples().handleParallelCoroutines() }
         binding.button2.setOnClickListener { Examples().handleContextSwitching() }
         binding.button3.setOnClickListener { Examples().handleSequentialCoroutines() }
