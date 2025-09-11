@@ -20,6 +20,6 @@
         android:label="CounterFragment" />
     <fragment
         android:id="@+id/postsFragment"
-        android:name="com.example.coroutinesapp.ui.home.PostsFragment"
+        android:name="com.example.coroutinesapp.ui.PostsFragment"
         android:label="PostsFragment" />
 </navigation>

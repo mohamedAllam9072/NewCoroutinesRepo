@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.ui.home
+package com.example.coroutinesapp.ui
 
 import PostAdapter
 import android.os.Bundle
@@ -8,10 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
-import com.example.coroutinesapp.R
-import com.example.coroutinesapp.databinding.FragmentHomeBinding
 import com.example.coroutinesapp.databinding.FragmentPostsBinding
 import com.example.coroutinesapp.handleNetworkApi.data.model.ApiResponse
 import com.example.coroutinesapp.handleNetworkApi.data.model.Post
