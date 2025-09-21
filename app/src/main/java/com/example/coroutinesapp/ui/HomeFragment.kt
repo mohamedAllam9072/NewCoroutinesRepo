@@ -11,6 +11,7 @@ import com.example.coroutinesapp.databinding.FragmentHomeBinding
 import com.example.coroutinesapp.examples.AsyncExamples
 import com.example.coroutinesapp.examples.Examples
 import com.example.coroutinesapp.examples.JobHandlingExamples
+import com.example.coroutinesapp.handleFlow.HandleFlowExamples
 
 class HomeFragment : Fragment() {
 
@@ -36,6 +37,12 @@ class HomeFragment : Fragment() {
         binding.handleComplexTaskCancellationCheckIsActive.setOnClickListener { JobHandlingExamples().handleComplexTaskCancellation_check_isActive() }
         binding.handleComplexTaskCancellationWithTimeout.setOnClickListener { JobHandlingExamples().handleComplexTaskCancellation_withTimeout() }
         binding.handleParallelCoroutines.setOnClickListener { AsyncExamples().handleParallelCoroutines() }
+
+
+//        HandleFlowExamples().test()
+//        HandleFlowExamples().test2()
+        HandleFlowExamples().test_getLatestResult()
+
         return binding.root
     }
 
