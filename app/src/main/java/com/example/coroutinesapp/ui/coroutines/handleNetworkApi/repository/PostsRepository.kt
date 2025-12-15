@@ -1,16 +1,15 @@
-package com.example.coroutinesapp.handleNetworkApi.repository
+package com.example.coroutinesapp.ui.coroutines.handleNetworkApi.repository
 
-import com.example.coroutinesapp.handleNetworkApi.data.RetrofitClient
-import com.example.coroutinesapp.handleNetworkApi.data.RetrofitClient.apiService
-import com.example.coroutinesapp.handleNetworkApi.data.model.ApiResponse
-import com.example.coroutinesapp.handleNetworkApi.data.model.Post
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.RetrofitClient.apiService
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.ApiResponse
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.Post
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 class PostsRepository {
-    private val api = RetrofitClient.apiService
+    private val api = apiService
     
     // Get all posts with error handling
     suspend fun getAllPosts(): ApiResponse<List<Post>> {

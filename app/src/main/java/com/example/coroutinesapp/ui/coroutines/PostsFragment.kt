@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.ui
+package com.example.coroutinesapp.ui.coroutines
 
 import PostAdapter
 import android.os.Bundle
@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.example.coroutinesapp.databinding.FragmentPostsBinding
-import com.example.coroutinesapp.handleNetworkApi.data.model.ApiResponse
-import com.example.coroutinesapp.handleNetworkApi.data.model.Post
-import com.example.coroutinesapp.handleNetworkApi.viewmodel.PostsViewModel
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.ApiResponse
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.Post
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.viewmodel.PostsViewModel
 import kotlin.getValue
 
 class PostsFragment : Fragment() {

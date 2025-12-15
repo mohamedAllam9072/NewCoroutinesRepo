@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.ui
+package com.example.coroutinesapp.ui.coroutines
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.example.coroutinesapp.R
 import com.example.coroutinesapp.databinding.FragmentHomeBinding
-import com.example.coroutinesapp.examples.AsyncExamples
-import com.example.coroutinesapp.examples.Examples
-import com.example.coroutinesapp.examples.JobHandlingExamples
-import com.example.coroutinesapp.handleFlow.HandleFlowExamples
+import com.example.coroutinesapp.ui.coroutines.examples.AsyncExamples
+import com.example.coroutinesapp.ui.coroutines.examples.Examples
+import com.example.coroutinesapp.ui.coroutines.examples.JobHandlingExamples
+import com.example.coroutinesapp.ui.coroutines.handleFlow.HandleFlowExamples
 
 class HomeFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.handleFlow
+package com.example.coroutinesapp.ui.coroutines.handleFlow
 
 import android.util.Log
 import kotlinx.coroutines.delay

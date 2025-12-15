@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.handleNetworkApi.data
+package com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

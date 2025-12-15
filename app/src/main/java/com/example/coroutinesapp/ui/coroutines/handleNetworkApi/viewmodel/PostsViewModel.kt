@@ -1,11 +1,11 @@
-package com.example.coroutinesapp.handleNetworkApi.viewmodel
+package com.example.coroutinesapp.ui.coroutines.handleNetworkApi.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.coroutinesapp.handleNetworkApi.data.model.ApiResponse
-import com.example.coroutinesapp.handleNetworkApi.data.model.Post
-import com.example.coroutinesapp.handleNetworkApi.repository.PostsRepository
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.ApiResponse
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.Post
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.repository.PostsRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 

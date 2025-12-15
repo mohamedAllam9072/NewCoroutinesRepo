@@ -1,6 +1,5 @@
-package com.example.coroutinesapp.examples
+package com.example.coroutinesapp.ui.coroutines.examples
 
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async

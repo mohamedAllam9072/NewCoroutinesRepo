@@ -2,7 +2,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coroutinesapp.databinding.ItemPostBinding
-import com.example.coroutinesapp.handleNetworkApi.data.model.Post
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.Post
 
 class PostAdapter(
     private val posts: List<Post>,

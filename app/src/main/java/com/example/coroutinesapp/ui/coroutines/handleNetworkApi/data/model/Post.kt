@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.handleNetworkApi.data.model
+package com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model
 
 // Post.kt
 data class Post(

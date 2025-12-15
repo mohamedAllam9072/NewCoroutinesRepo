@@ -1,7 +1,7 @@
-package com.example.coroutinesapp.handleNetworkApi.data
+package com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data
 
-import com.example.coroutinesapp.handleNetworkApi.data.model.Post
-import com.example.coroutinesapp.handleNetworkApi.data.model.User
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.Post
+import com.example.coroutinesapp.ui.coroutines.handleNetworkApi.data.model.User
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE

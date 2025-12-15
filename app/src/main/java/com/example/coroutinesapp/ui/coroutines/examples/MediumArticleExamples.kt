@@ -1,4 +1,4 @@
-package com.example.coroutinesapp.examples
+package com.example.coroutinesapp.ui.coroutines.examples
 
 import android.util.Log
 import kotlinx.coroutines.Dispatchers

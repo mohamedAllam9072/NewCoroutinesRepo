@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.coroutinesapp.ui.HomeFragment"
+        android:name="com.example.coroutinesapp.ui.coroutines.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -16,10 +16,10 @@
     </fragment>
     <fragment
         android:id="@+id/counterFragment"
-        android:name="com.example.coroutinesapp.ui.CounterFragment"
+        android:name="com.example.coroutinesapp.ui.coroutines.CounterFragment"
         android:label="CounterFragment" />
     <fragment
         android:id="@+id/postsFragment"
-        android:name="com.example.coroutinesapp.ui.PostsFragment"
+        android:name="com.example.coroutinesapp.ui.coroutines.PostsFragment"
         android:label="PostsFragment" />
 </navigation>
