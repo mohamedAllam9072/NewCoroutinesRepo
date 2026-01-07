@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/OOPNotesFragment">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -22,4 +22,9 @@
         android:id="@+id/postsFragment"
         android:name="com.example.coroutinesapp.ui.coroutines.PostsFragment"
         android:label="PostsFragment" />
+    <fragment
+        android:id="@+id/OOPNotesFragment"
+        android:name="com.example.coroutinesapp.ui.oop.OOPNotesFragment"
+        android:label="OOPNotesFragment" />
+
 </navigation>
