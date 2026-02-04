@@ -16,5 +16,4 @@ class UserRepositoryImpl(private val remote: RemoteUserDataSource) : UserRepo {
 class GetUserUseCase(private val repository: UserRepo) {
     suspend operator fun invoke(id: String): User { return repository.getUser(id) }
 }
-class UserViewModel(private val getUserUseCase: GetUserUseCase)
 
